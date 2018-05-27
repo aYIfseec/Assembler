@@ -1,0 +1,20 @@
+
+
+; .code is assembler directive for code segment
+.code
+mov 	R1,num1
+add 	R1,num2
+brneg lbl1
+sto 	spc2
+lbl1	sto 	spc1
+jmp 	fin
+fin     end
+
+ 
+	
+; .data is assembler directive for data segment
+.data
+num1	.eq 	04
+num2	.eq	   -05
+spc1	.eq		??
+spc2	.eq		??
