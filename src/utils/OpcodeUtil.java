@@ -33,5 +33,5 @@ public class OpcodeUtil {
     public static final String BRPOS = "0111";
     
     // end
-    public static final String END = "1111";
+    public static final String END = "11110000";
 }

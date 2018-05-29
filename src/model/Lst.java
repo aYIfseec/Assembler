@@ -12,6 +12,26 @@ public class Lst extends Obj{
     private String op;
     private String[] args;
     
+    private String untranslatedOpMachineCode;
+    private String untranslatedDataMachineCode;
+
+    
+    public String getUntranslatedDataMachineCode() {
+        return untranslatedDataMachineCode;
+    }
+
+    public void setUntranslatedDataMachineCode(String untranslatedDataMachineCode) {
+        this.untranslatedDataMachineCode = untranslatedDataMachineCode;
+    }
+    
+    public String getUntranslatedOpMachineCode() {
+        return untranslatedOpMachineCode;
+    }
+
+    public void setUntranslatedOpMachineCode(String untranslatedMachineCode) {
+        this.untranslatedOpMachineCode = untranslatedMachineCode;
+    }
+
     public Lst() {
 	this("", "", "", "", "", null);
     }
@@ -32,7 +52,14 @@ public class Lst extends Obj{
     }
 
     public void setLine_num(String line_num) {
-        this.line_num = line_num;
+	String zero = "";
+	if (line_num.length() % 4 != 0) {
+	    int temp = 4 - line_num.length()%4;
+	    while (temp-- > 0) {
+		zero += "0";
+	    }
+	}
+        this.line_num = zero + line_num;
     }
 
     public String getOpCodeHex() {

@@ -25,5 +25,5 @@ public class Obj {
     public void setDataMachineCode(String dataMachineCode) {
         this.dataMachineCode = dataMachineCode;
     }
-    
+
 }
