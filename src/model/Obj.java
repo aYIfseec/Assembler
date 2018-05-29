@@ -20,6 +20,7 @@ public class Obj {
         this.opMachineCode = opMachineCode;
     }
     public String getDataMachineCode() {
+	if (dataMachineCode.equals("")) return "        ";
         return dataMachineCode;
     }
     public void setDataMachineCode(String dataMachineCode) {

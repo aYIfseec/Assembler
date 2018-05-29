@@ -151,10 +151,11 @@ public class Assembler {
 	
 	if (assemblerCompile()) {
 	    // 测试输出第二遍的lst
-	    for (Lst lst: lstTable) {  
-		System.out.println(lst.toString());  
+	    for (Lst lst: lstTable) {
+		lst.setOpCodeHex(lst.getOpMachineCode());
+		lst.setDataCodeHex(lst.getDataMachineCode());
+		System.out.println(lst.toString());
 	    }
-	    
 	    
 	    BufferedWriter bf = null;
 	    // 生成.lst文件

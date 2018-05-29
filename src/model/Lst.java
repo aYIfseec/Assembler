@@ -67,7 +67,7 @@ public class Lst extends Obj{
     }
 
     public void setOpCodeHex(String opCodeHex) {
-        this.opCodeHex = opCodeHex;
+        this.opCodeHex = binaryStrToHexStr(opCodeHex);
     }
 
     public String getDataCodeHex() {
@@ -75,7 +75,7 @@ public class Lst extends Obj{
     }
 
     public void setDataCodeHex(String dataCodeHex) {
-        this.dataCodeHex = dataCodeHex;
+        this.dataCodeHex = binaryStrToHexStr(dataCodeHex);
     }
 
     public String getLab() {
@@ -121,5 +121,23 @@ public class Lst extends Obj{
 	}
 	if (res.length() != 0) res = res.substring(0, res.length()-2);
 	return res;
+    }
+    
+    
+    
+    public static String binaryStrToHexStr(String binaryStr) {  
+	binaryStr = binaryStr.trim();
+        if (binaryStr == null || binaryStr.equals("") || binaryStr.length() % 4 != 0) {  
+            return "  ";
+        }  
+  
+        StringBuffer sbs = new StringBuffer();  
+        // 二进制字符串是4的倍数，所以四位二进制转换成一位十六进制  
+        for (int i = 0; i < binaryStr.length() / 4; i++) {  
+            String subStr = binaryStr.substring(i * 4, i * 4 + 4);  
+            String hexStr = Integer.toHexString(Integer.parseInt(subStr, 2));  
+            sbs.append(hexStr);  
+        }
+        return sbs.toString().toUpperCase();
     }
 }
